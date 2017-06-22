@@ -174,6 +174,7 @@ class CmakeBuildType(BuildType):
         # (either cmake or the cmake_check_build_system make target)
         if should_run_configure:
             cmake_args = [context.source_space]
+            cmake_args += ['--warn-uninitialized']
             cmake_args.extend(extra_cmake_args)
             cmake_args += ["-DCMAKE_INSTALL_PREFIX=" + context.install_space]
             if IS_WINDOWS:
